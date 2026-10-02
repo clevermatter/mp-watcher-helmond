@@ -1,0 +1,46 @@
+# ============================================================================
+#  Jouw zoekopdrachten
+# ============================================================================
+#  Elke zoekopdracht begint met [[zoekopdracht]].
+#  Kopieer een blok om er een toe te voegen, of zet actief = false om er
+#  tijdelijk een uit te zetten. Regels die met # beginnen worden genegeerd.
+#
+#  Mogelijke instellingen ('zoekterm' of 'categorie' is verplicht):
+#
+#    naam             = "..."      naam in je berichten (moet uniek zijn)
+#    zoekterm         = "..."      waar je op zoekt (weglaten = alles in de categorie)
+#    max_prijs        = 30         maximale prijs in euro's
+#    min_prijs        = 5          minimale prijs in euro's (filtert '1 euro'-lokkertjes)
+#    alleen_met_prijs = true       advertenties met 'Bieden', 'N.o.t.k.' enz. overslaan
+#    uitsluiten       = ["hoes"]   advertenties met deze woorden in de titel overslaan
+#    alleen_in_titel  = true       zoekterm alleen in de titel zoeken (minder ruis)
+#    categorie        = 356        hoofdcategorie (356 = Spelcomputers en Games)
+#    subcategorie     = 2942       subcategorie (zie de tabel in README.md)
+#    postcode         = "1234AB"   zoeken rond een postcode...
+#    afstand_km       = 25         ...binnen zoveel kilometer
+#    actief           = false      zoekopdracht tijdelijk uitzetten
+# ============================================================================
+
+# Hoe wil je de meldingen krijgen?
+#   "overzicht" = elke check één bericht met alle nieuwe advertenties onder elkaar
+#   "los"       = een apart bericht per advertentie, met foto
+berichten = "overzicht"
+
+# Geen automatische checks in deze periode (Nederlandse tijd). Leeg ("") = altijd checken.
+nachtpauze = "02:00-06:00"
+
+
+[[zoekopdracht]]
+naam = "Switch games (Venray)"
+categorie = 356          # Spelcomputers en Games
+subcategorie = 2942      # Games | Nintendo Switch
+postcode = "5801MB"      # Venray
+afstand_km = 15
+
+
+[[zoekopdracht]]
+naam = "Switch consoles (Venray)"
+categorie = 356
+subcategorie = 2943      # Spelcomputers | Nintendo Switch
+postcode = "5801MB"
+afstand_km = 15
