@@ -31,7 +31,7 @@ nachtpauze = "02:00-06:00"
 
 
 [[zoekopdracht]]
-naam = "Switch games (Helmond)"
+naam = "Nintendo Switch games (Helmond)"
 categorie = 356          # Spelcomputers en Games
 subcategorie = 2942      # Games | Nintendo Switch
 postcode = "5701PP"      # Helmond centrum
@@ -39,7 +39,7 @@ afstand_km = 20
 
 
 [[zoekopdracht]]
-naam = "Switch consoles (Helmond)"
+naam = "Nintendo Switch consoles (Helmond)"
 categorie = 356
 subcategorie = 2943      # Spelcomputers | Nintendo Switch
 postcode = "5701PP"
