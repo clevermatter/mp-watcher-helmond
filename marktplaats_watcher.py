@@ -494,8 +494,21 @@ def verwerk(z: dict, gezien: dict[str, list[str]], tg: Telegram, testmodus: bool
 
     al_gezien = set(gezien[naam])
     nieuw = [a for a in advertenties if a.get("itemId") and a["itemId"] not in al_gezien]
+
+    # Advertenties die een andere zoekopdracht al meldde (of in deze check meldt)
+    # niet nog een keer sturen. Zet daarom brede zoekopdrachten onderaan in
+    # zoekopdrachten.toml: die melden dan alleen wat de rest gemist heeft.
+    elders = {i for k, ids in gezien.items() if k != naam and not k.startswith("_") for i in ids}
+    if overzicht:
+        elders |= {a["itemId"] for _, advs in overzicht for a in advs}
+    dubbel = [a for a in nieuw if a["itemId"] in elders]
+    nieuw = [a for a in nieuw if a["itemId"] not in elders]
+    for a in dubbel:
+        gezien[naam].insert(0, a["itemId"])
+
     passend = [a for a in nieuw if voldoet(a, z)]
-    log(f"  {len(nieuw)} nieuw, waarvan {len(passend)} voldoen aan je filters")
+    log(f"  {len(nieuw)} nieuw, waarvan {len(passend)} voldoen aan je filters"
+        + (f" ({len(dubbel)} al gemeld via een andere zoekopdracht)" if dubbel else ""))
 
     # Niet-passende nieuwe advertenties ook onthouden, zodat ze niet steeds terugkomen
     passend_ids = {a["itemId"] for a in passend}
