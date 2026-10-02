@@ -31,16 +31,16 @@ nachtpauze = "02:00-06:00"
 
 
 [[zoekopdracht]]
-naam = "Switch games (Venray)"
+naam = "Switch games (Helmond)"
 categorie = 356          # Spelcomputers en Games
 subcategorie = 2942      # Games | Nintendo Switch
-postcode = "5801MB"      # Venray
-afstand_km = 15
+postcode = "5701PP"      # Helmond centrum
+afstand_km = 20
 
 
 [[zoekopdracht]]
-naam = "Switch consoles (Venray)"
+naam = "Switch consoles (Helmond)"
 categorie = 356
 subcategorie = 2943      # Spelcomputers | Nintendo Switch
-postcode = "5801MB"
-afstand_km = 15
+postcode = "5701PP"
+afstand_km = 20
