@@ -44,3 +44,13 @@ categorie = 356
 subcategorie = 2943      # Spelcomputers | Nintendo Switch
 postcode = "5701PP"
 afstand_km = 20
+
+
+# Zoekt op "nintendo switch" in ALLE categorieën, voor advertenties die in een
+# andere categorie staan. Laat deze onderaan staan: wat de twee zoekopdrachten
+# hierboven al meldden, wordt hier overgeslagen.
+[[zoekopdracht]]
+naam = "Nintendo Switch overig (Helmond)"
+zoekterm = "nintendo switch"
+postcode = "5701PP"
+afstand_km = 20
