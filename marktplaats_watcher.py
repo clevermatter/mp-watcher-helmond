@@ -32,6 +32,7 @@ import hashlib
 import html
 import json
 import os
+import re
 import sys
 import time
 import tomllib
@@ -245,8 +246,19 @@ def zoek_marktplaats(z: dict) -> list[dict]:
     return data.get("listings", [])
 
 
+def te_oud(advertentie: dict) -> bool:
+    """Ouder dan gisteren geplaatst? Marktplaats geeft alleen een tekst als datum:
+    'Vandaag', 'Gisteren', 'Eergisteren' of bijvoorbeeld '28 sep 26'.
+    Zo'n oude advertentie schuift soms onderaan de lijst in als er bovenaan een
+    verdwijnt; die willen we niet als nieuw melden. Onbekende tekst = niet te oud."""
+    datum = (advertentie.get("date") or "").strip().lower()
+    return datum == "eergisteren" or bool(re.fullmatch(r"\d{1,2} \S+ \d{2,4}", datum))
+
+
 def voldoet(advertentie: dict, z: dict) -> bool:
     """Extra filters die we zelf toepassen (bovenop de filters van Marktplaats)."""
+    if te_oud(advertentie):
+        return False
     titel = (advertentie.get("title") or "").lower()
     for woord in z.get("uitsluiten", []):
         if woord.lower() in titel:
