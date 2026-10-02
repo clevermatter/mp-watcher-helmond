@@ -2,10 +2,10 @@ name: Marktplaats-watcher
 
 on:
   schedule:
-    # Elke 30 minuten (op :07 en :37). Tijden zijn in UTC; GitHub start
+    # Elke 30 minuten (op :00 en :30). Tijden zijn in UTC; GitHub start
     # geplande runs soms een paar minuten later dan gepland. De nachtpauze
     # (Nederlandse tijd) staat in zoekopdrachten.toml.
-    - cron: "7,37 * * * *"
+    - cron: "0,30 * * * *"
   # Hiermee kun je hem ook met de hand starten via de Actions-tab
   workflow_dispatch:
     inputs:
